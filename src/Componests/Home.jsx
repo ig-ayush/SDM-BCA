@@ -56,7 +56,7 @@ export default function Home() {
                                     fontSize: '1.5rem',
                                     color: 'orange',
                                     display: 'flex',
-                                    justifyContent: 'center'
+                                    justifyContent: 'center',
                                 }}>
                                     to do list
                                 </Typography>
