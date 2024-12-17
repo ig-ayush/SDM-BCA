@@ -38,7 +38,7 @@ export default function InsertForm({notes,setNotes}) {
                         />
                     </Grid2>
                     <Grid2 size={{ xs: 2 }}>
-                        <Button variant='contained' color='primary' fullWidth
+                        <Button variant='contained' color='error' fullWidth
                             onClick={handleSubmit}
                             sx={{ p: 2 }}
                         >
