@@ -35,6 +35,7 @@ export default function InsertForm({notes,setNotes}) {
                             placeholder='Enter note here'
                             helperText= {noteErr && noteErr }
                             error={!!noteErr}
+                            autoComplete='off'
                         />
                     </Grid2>
                     <Grid2 size={{ xs: 2 }}>

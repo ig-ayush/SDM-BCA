@@ -12,26 +12,26 @@ export default function Home() {
     };
 
     const [notes, setNotes] = useState(initialValue);
-    const deletNote = (id) =>{
-        let remainNodes = notes.filter((item)=>item.id!=id); 
-        localStorage.setItem('notes',JSON.stringify(remainNodes));
+    const deletNote = (id) => {
+        let remainNodes = notes.filter((item) => item.id != id);
+        localStorage.setItem('notes', JSON.stringify(remainNodes));
         setNotes(remainNodes);
     };
-    const strikNote =(node) =>{
+    const strikNote = (node) => {
         console.log(node)
         let status;
         if (node.completed) {
-         status = false;
+            status = false;
         } else {
             status = true;
         }
-        let modififNote = {...node,completed:status};
+        let modififNote = { ...node, completed: status };
         console.log(modififNote)
-        let noteIndex = notes.findIndex((it)=>it.id == node.id )
+        let noteIndex = notes.findIndex((it) => it.id == node.id)
         console.log(noteIndex)
         let modifiedCompletNode = [...notes];
-        modifiedCompletNode.splice(noteIndex,1,modififNote)
-        localStorage.getItem('notes',JSON.stringify(modifiedCompletNode));
+        modifiedCompletNode.splice(noteIndex, 1, modififNote)
+        localStorage.getItem('notes', JSON.stringify(modifiedCompletNode));
         setNotes(modifiedCompletNode);
     }
     return (
@@ -65,31 +65,36 @@ export default function Home() {
                                 <InsertForm notes={notes} setNotes={setNotes} />
                             </Grid2>
                             <Grid2 size={{ xs: 12 }}>
-                                <Box sx={{maxHeight:'40vh', overflow:'auto'}}>
-                                    {notes.length > 0?
-                                    notes.map((note,index)=>(
-                                    <List key={index} note={note} deletNote = {deletNote} strikNote = {strikNote}/>
-                                )):(
+                                <Box sx={{ maxHeight: '40vh', overflow: 'auto' }}>
+                                    {notes.length > 0 ?
+                                        notes.map((note, index) => (
+                                            <List
+                                                key={index}
+                                                note={note}
+                                                deletNote={deletNote}
+                                                strikNote={strikNote}
+                                            />
+                                        )) : (
 
-                                    <Box sx={{
-                                        p: 2,
-                                    }
-                                    }>
-                
-                                        <Typography sx={{
-                                            display: 'flex',
-                                            justifyContent: 'center',
-                                            color: 'text.secondary'
-                                        }}>
-                                            No notes found
-                                        </Typography>
-                                    </Box>
-                                )}
+                                            <Box sx={{
+                                                p: 2,
+                                            }
+                                            }>
+
+                                                <Typography sx={{
+                                                    display: 'flex',
+                                                    justifyContent: 'center',
+                                                    color: 'text.secondary'
+                                                }}>
+                                                    No notes found
+                                                </Typography>
+                                            </Box>
+                                        )}
                                 </Box>
                             </Grid2>
                         </Grid2>
                     </Box>
-                   
+
 
                 </Paper>
             </Box>
